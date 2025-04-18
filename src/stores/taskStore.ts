@@ -4,7 +4,7 @@ import type { Task } from "../types/Task";
 
 export const useTaskStore = defineStore('tasks', () => {
 
-    const tasks = ref<Task[]>([])
+    const tasks = ref<Task[]>([]);
 
     const addTask = (task: Task) => {
         tasks.value.push(task);

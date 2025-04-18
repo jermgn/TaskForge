@@ -5,4 +5,5 @@ export interface Task {
     isCompleted: boolean
     createdAt: string
     dueDate?: string
+    listId: string
 }

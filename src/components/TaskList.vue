@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const taskStore = useTaskStore();
 
-const { addTask, allTasks } = taskStore;
+const { addTask, getTasks } = taskStore;
 
 const handleAddTask = () => {
   const newTask: Task = {
@@ -21,7 +21,7 @@ const handleAddTask = () => {
 </script>
 
 <template>
-    <div v-for="task in allTasks">
+    <div v-for="task in getTasks">
         <p>{{ task }}</p>
     </div>
     <button @click="handleAddTask">Ajouter une tâche</button>

@@ -14,12 +14,12 @@ export const useListStore = defineStore('lists', () => {
         lists.value = lists.value.filter(l => l.id !== id);
     };
 
-    const allLists = computed(() => lists.value);
+    const getLists = computed(() => lists.value);
 
     return {
         lists,
         addList,
         removeList,
-        allLists,
+        getLists,
     };
 });

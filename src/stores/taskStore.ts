@@ -19,13 +19,13 @@ export const useTaskStore = defineStore('tasks', () => {
         if (task) task.isCompleted = !task.isCompleted;
     };
 
-    const allTasks = computed(() => tasks.value);
+    const getTasks = computed(() => tasks.value);
 
     return {
         tasks,
         addTask,
         removeTask,
         toggleTask,
-        allTasks,
+        getTasks,
     };
 });

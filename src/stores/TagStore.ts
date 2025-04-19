@@ -14,12 +14,12 @@ export const useTagStore = defineStore('tags', () => {
         tags.value = tags.value.filter(t => t.id !== id);
     };
 
-    const allTags = computed(() => tags.value);
+    const getTags = computed(() => tags.value);
 
     return {
         tags,
         addTag,
         removeTag,
-        allTags,
+        getTags,
     };
 });

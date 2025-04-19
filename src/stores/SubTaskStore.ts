@@ -14,11 +14,17 @@ export const useSubTaskStore = defineStore('subtasks', () => {
         subtasks.value = subtasks.value.filter(s => s.id !== id);
     };
 
-    const allSubtasks = computed(() => subtasks.value);
+    const toggleSubtask = (id: string) => {
+        const subtask = subtasks.value.find(s => s.id === id);
+        if (subtask) subtask.isCompleted = !subtask.isCompleted;
+    };
+
+    const getSubtasks = computed(() => subtasks.value);
 
     return {
         addSubtask,
         removeSubtask,
-        allSubtasks,
+        toggleSubtask,
+        getSubtasks,
     };
 });

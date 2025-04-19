@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
-import { ref } from "vue";
-import type { Task } from "../types/Task";
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
+import type { Task } from '../types/Task';
 
 export const useTaskStore = defineStore('tasks', () => {
 
@@ -19,10 +19,13 @@ export const useTaskStore = defineStore('tasks', () => {
         if (task) task.isCompleted = !task.isCompleted;
     };
 
+    const allTasks = computed(() => tasks.value);
+
     return {
         tasks,
         addTask,
         removeTask,
         toggleTask,
+        allTasks,
     };
 });

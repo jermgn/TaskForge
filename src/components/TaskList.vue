@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useTaskStore } from '../stores/TaskStore';
-import { computed } from 'vue';
 import type { Task } from '../types/Task';
 import { v4 as uuidv4 } from 'uuid';
 
 const taskStore = useTaskStore();
 
-const tasks = computed(() => taskStore.tasks);
+const { addTask, allTasks } = taskStore;
 
-const addTask = () => {
+const handleAddTask = () => {
   const newTask: Task = {
     id: uuidv4(),
     name: 'Nouvelle tâche',
@@ -17,15 +16,15 @@ const addTask = () => {
     listId: 'default-list-id',
   };
 
-  taskStore.addTask(newTask);
+  addTask(newTask);
 };
 </script>
 
 <template>
-    <div v-for="task in tasks">
+    <div v-for="task in allTasks">
         <p>{{ task }}</p>
     </div>
-    <button @click="addTask">Ajouter une tâche</button>
+    <button @click="handleAddTask">Ajouter une tâche</button>
 </template>
 
 <style scoped>

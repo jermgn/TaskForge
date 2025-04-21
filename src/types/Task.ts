@@ -1,10 +1,12 @@
+import type { TaskState } from "../enums/TaskState"
+
 export interface Task {
     id: string
     name: string
     description?: string
-    isCompleted: boolean
+    status: TaskState
     createdAt: string
-    dueDate?: string
+    dueDate: string
     listId: string
     tagIds?: string[]
 }

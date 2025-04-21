@@ -6,5 +6,5 @@ export interface Task {
     createdAt: string
     dueDate?: string
     listId: string
-    tags?: string[]
+    tagIds?: string[]
 }

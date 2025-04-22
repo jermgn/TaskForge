@@ -18,7 +18,7 @@ export const useTaskStore = defineStore('tasks', () => {
 
     const getTasks = computed(() => tasks.value);
 
-    const newTask: Task = {
+    const newTask1: Task = {
         id: uuidv4(),
         name: 'Nouvelle tâche 1',
         state: TaskState.TODO,
@@ -26,8 +26,19 @@ export const useTaskStore = defineStore('tasks', () => {
         dueDate: new Date().toISOString(),
         listId: 'default-list-id',
     };
-      
-    addTask(newTask);
+
+    addTask(newTask1);
+
+    const newTask2: Task = {
+        id: uuidv4(),
+        name: 'Nouvelle tâche 2',
+        state: TaskState.COMPLETED,
+        createdAt: new Date().toISOString(),
+        dueDate: new Date().toISOString(),
+        listId: 'default-list-id',
+    };
+
+    addTask(newTask2);
 
     return {
         tasks,

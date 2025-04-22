@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useTaskStore } from '../stores/TaskStore';
+import TaskItem from './TaskItem.vue';
 
 const taskStore = useTaskStore();
 
@@ -8,7 +9,7 @@ const { getTasks } = taskStore;
 
 <template>
     <div v-for="task in getTasks">
-        <p>{{ task }}</p>
+        <TaskItem :task="task" />
     </div>
 </template>
 

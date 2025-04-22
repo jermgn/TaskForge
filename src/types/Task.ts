@@ -4,7 +4,7 @@ export interface Task {
     id: string
     name: string
     description?: string
-    status: TaskState
+    state: TaskState
     createdAt: string
     dueDate: string
     listId: string

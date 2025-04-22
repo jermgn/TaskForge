@@ -21,7 +21,7 @@ export const useTaskStore = defineStore('tasks', () => {
     const newTask: Task = {
         id: uuidv4(),
         name: 'Nouvelle tâche 1',
-        status: TaskState.TODO,
+        state: TaskState.TODO,
         createdAt: new Date().toISOString(),
         dueDate: new Date().toISOString(),
         listId: 'default-list-id',

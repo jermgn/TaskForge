@@ -8,7 +8,7 @@ const { getTasks } = taskStore;
 </script>
 
 <template>
-    <div v-for="task in getTasks">
+    <div v-for="task in getTasks" :key="task.id">
         <TaskItem :task="task" />
     </div>
 </template>

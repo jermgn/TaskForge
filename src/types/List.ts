@@ -1,4 +1,4 @@
-import type { Color } from "../enums/Color"
+import type { Color } from "@enums/Color"
 
 export interface List {
     id: string

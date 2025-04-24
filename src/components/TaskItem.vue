@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useSubTaskStore } from '../stores/SubTaskStore';
-import type { Task } from '../types/Task';
+import { useSubTaskStore } from '@stores/SubTaskStore';
+import type { Task } from '@types/Task';
 
 defineProps<{
     task: Task,

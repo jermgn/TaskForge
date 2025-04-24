@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { Tag } from '../types/Tag';
+import type { Tag } from '@types/Tag';
 
 export const useTagStore = defineStore('tags', () => {
 

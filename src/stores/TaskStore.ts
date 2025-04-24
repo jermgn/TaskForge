@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { Task } from '../types/Task';
+import type { Task } from '@types/Task';
 import { v4 as uuidv4 } from 'uuid';
-import { TaskState } from '../enums/TaskState';
+import { TaskState } from '@enums/TaskState';
 
 export const useTaskStore = defineStore('tasks', () => {
 

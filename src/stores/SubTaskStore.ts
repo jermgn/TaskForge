@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { SubTask } from '../types/SubTask';
+import type { SubTask } from '@types/SubTask';
 import { v4 as uuidv4 } from 'uuid';
 
 export const useSubTaskStore = defineStore('subtasks', () => {

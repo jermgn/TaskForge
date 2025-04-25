@@ -12,11 +12,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@enums/*": ["src/enums/*"],
-      "@stores/*": ["src/stores/*"],
-      "@types/*": ["src/types/*"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]

@@ -1,4 +1,4 @@
-import type { TaskState } from "@enums/TaskState"
+import type { TaskState } from "@/enums/TaskState"
 
 export interface Task {
     id: string

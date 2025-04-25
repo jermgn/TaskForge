@@ -4,14 +4,15 @@ import SubTaskList from '@/components/SubTaskList.vue';
 import { TaskState } from '@/enums/TaskState';
 import type { Task } from '@/types/Task';
 
-defineProps<{
+const props = defineProps<{
     task: Task,
 }>();
 
 const taskStore = useTaskStore();
 
-const { toggleTaskState } = taskStore;
-
+const toggleTaskState = () => {
+    taskStore.toggleTaskState(props.task.id);
+};
 </script>
 
 <template>
@@ -20,7 +21,7 @@ const { toggleTaskState } = taskStore;
         type="checkbox"
         :id="`${task.id}`"
         :checked="task.state === TaskState.COMPLETED"
-        @change="() => toggleTaskState(task.id)"
+        @change="toggleTaskState"
         />
         <label :for="`${task.id}`">{{ task.name }}</label>
     </div>

@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-import type { SubTask } from '@/types/SubTask';
+import { ref } from 'vue';
+import type { Subtask } from '@/types/Subtask';
 import { v4 as uuidv4 } from 'uuid';
 
-export const useSubTaskStore = defineStore('subtasks', () => {
+export const useSubtaskStore = defineStore('subtasks', () => {
 
-    const subtasks = ref<SubTask[]>([]);
+    const subtasks = ref<Subtask[]>([]);
 
-    const addSubtask = (subtask: SubTask) => {
+    const addSubtask = (subtask: Subtask) => {
         subtasks.value.push(subtask);
     };
 
@@ -24,7 +24,7 @@ export const useSubTaskStore = defineStore('subtasks', () => {
         return subtasks.value.filter(subtask => subtask.taskId === taskId);
     };          
 
-    const newSubtask1: SubTask = {
+    const newSubtask1: Subtask = {
         id: uuidv4(),
         name: "Nouvelle sous-tâche 1",
         isCompleted: false,
@@ -33,7 +33,7 @@ export const useSubTaskStore = defineStore('subtasks', () => {
 
     addSubtask(newSubtask1);
 
-    const newSubtask2: SubTask = {
+    const newSubtask2: Subtask = {
         id: uuidv4(),
         name: "Nouvelle sous-tâche 2",
         isCompleted: true,

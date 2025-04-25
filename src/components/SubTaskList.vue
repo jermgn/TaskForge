@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { useSubTaskStore } from '@/stores/SubTaskStore';
-import SubTaskItem from '@/components/SubTaskItem.vue';
+import { useSubtaskStore } from '@/stores/SubtaskStore';
+import SubtaskItem from '@/components/SubtaskItem.vue';
 import type { Task } from '@/types/Task';
 
 defineProps<{
     task: Task,
 }>();
 
-const subTaskStore = useSubTaskStore();
+const subtaskStore = useSubtaskStore();
 
-const { getSubtasksByTaskId } = subTaskStore;
+const { getSubtasksByTaskId } = subtaskStore;
 
 </script>
 
 <template>
     <div v-for="subtask in getSubtasksByTaskId(task.id)" :key="subtask.id">
-        <SubTaskItem :subtask="subtask" />
+        <SubtaskItem :subtask="subtask" />
     </div>
 </template>
 

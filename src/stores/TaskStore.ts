@@ -31,7 +31,7 @@ export const useTaskStore = defineStore('tasks', () => {
         state: TaskState.TODO,
         createdAt: new Date().toISOString(),
         dueDate: new Date().toISOString(),
-        listId: 'default-list-id',
+        listId: 'default-list-id'
     };
 
     addTask(newTask1);

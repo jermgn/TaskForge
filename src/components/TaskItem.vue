@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTaskStore } from '@/stores/TaskStore';
-import SubTaskList from '@/components/SubTaskList.vue';
+import SubtaskList from '@/components/SubtaskList.vue';
 import { TaskState } from '@/enums/TaskState';
 import type { Task } from '@/types/Task';
 
@@ -32,7 +32,7 @@ const toggleOpen = () => {
         <label :for="`${task.id}`">{{ task.name }}</label>
         <button @click="toggleOpen">{{ isOpen ? 'v' : '>' }}</button>
     </div>
-    <SubTaskList v-if="isOpen" :task="task" />
+    <SubtaskList v-if="isOpen" :task="task" />
 </template>
 
 <style scoped>

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useSubTaskStore } from '@/stores/SubTaskStore';
-import type { SubTask } from '@/types/SubTask';
+import { useSubtaskStore } from '@/stores/SubtaskStore';
+import type { Subtask } from '@/types/Subtask';
 
 const props = defineProps<{
-    subtask: SubTask,
+    subtask: Subtask,
 }>();
 
-const subTaskStore = useSubTaskStore();
+const subtaskStore = useSubtaskStore();
 
 const toggleSubtask = () => {
-    subTaskStore.toggleSubtask(props.subtask.id);
+    subtaskStore.toggleSubtask(props.subtask.id);
 };
 </script>
 

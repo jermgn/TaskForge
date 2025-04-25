@@ -22,9 +22,7 @@ export const useSubTaskStore = defineStore('subtasks', () => {
 
     const getSubtasksByTaskId = (taskId: string) => {
         return subtasks.value.filter(subtask => subtask.taskId === taskId);
-    };
-
-    const getSubtasks = computed(() => subtasks.value);
+    };          
 
     const newSubtask1: SubTask = {
         id: uuidv4(),
@@ -49,6 +47,5 @@ export const useSubTaskStore = defineStore('subtasks', () => {
         removeSubtask,
         toggleSubtask,
         getSubtasksByTaskId,
-        getSubtasks,
     };
 });

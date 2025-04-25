@@ -1,20 +1,30 @@
 <script setup lang="ts">
-import { useSubTaskStore } from '@/stores/SubTaskStore';
-import type { Task } from '@/types/Task';
+import { useTaskStore } from '@/stores/TaskStore';
 import SubTaskList from '@/components/SubTaskList.vue';
+import { TaskState } from '@/enums/TaskState';
+import type { Task } from '@/types/Task';
 
 defineProps<{
     task: Task,
 }>();
 
-const subTaskStore = useSubTaskStore();
+const taskStore = useTaskStore();
 
-const { getSubtasksByTaskId } = subTaskStore;
+const { toggleTaskState } = taskStore;
+
 </script>
 
 <template>
-    <div>{{ task.name }}</div>
-    <SubTaskList :subtasks="getSubtasksByTaskId(task.id)" />
+    <div>
+        <input
+        type="checkbox"
+        :id="`${task.id}`"
+        :checked="task.state === TaskState.COMPLETED"
+        @change="() => toggleTaskState(task.id)"
+        />
+        <label :for="`${task.id}`">{{ task.name }}</label>
+    </div>
+    <SubTaskList :task="task" />
 </template>
 
 <style scoped>

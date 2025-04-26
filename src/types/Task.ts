@@ -9,6 +9,8 @@ export interface Task {
     priority?: TaskPriority
     createdAt: string
     dueDate?: string
+    completedAt?: string
     listId?: string
     tagIds?: string[]
+    subtaskIds?: string[]
 }

@@ -1,10 +1,11 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { Tag } from '@/types/Tag';
+import { mockTags } from '@/mocks';
 
 export const useTagStore = defineStore('tags', () => {
 
-    const tags = ref<Tag[]>([]);
+    const tags = ref<Tag[]>(mockTags);
 
     const addTag = (tag: Tag) => {
         tags.value.push(tag);

@@ -30,7 +30,7 @@ export const mockTasks: Task[] = [
     {
         id: "task-3",
         name: "Book dentist appointment",
-        state: TaskState.TODO,
+        state: TaskState.COMPLETED,
         priority: TaskPriority.LOW,
         createdAt: new Date().toISOString(),
         listId: "list-2",

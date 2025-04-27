@@ -2,10 +2,11 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { List } from '@/types/List';
 import { Color } from '@/enums/Color';
+import { mockLists } from '@/mocks';
 
 export const useListStore = defineStore('lists', () => {
 
-    const lists = ref<List[]>([]);
+    const lists = ref<List[]>(mockLists);
 
     const addList = (list: List) => {
         lists.value.push(list);
@@ -20,16 +21,7 @@ export const useListStore = defineStore('lists', () => {
     };
 
     const getLists = computed(() => lists.value);
-
-    const newList: List = {
-        id: "default-list-id",
-        name: "",
-        createdAt: new Date().toISOString(),
-        color: Color.BLUE,
-    };
-
-    addList(newList);
-
+    
     return {
         lists,
         addList,

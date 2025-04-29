@@ -32,7 +32,10 @@ const toggleOpen = () => {
         <label :for="`${task.id}`">{{ task.name }}</label>
         <button @click="toggleOpen">{{ isOpen ? 'v' : '>' }}</button>
     </div>
-    <SubtaskList v-if="isOpen" :task="task" />
+    <div v-if="isOpen">
+        <p>{{ task.description }}</p>
+        <SubtaskList :task="task" />
+    </div>
 </template>
 
 <style scoped>

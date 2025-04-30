@@ -21,10 +21,17 @@ const toggleSubtask = () => {
         :checked="subtask.isCompleted"
         @change="toggleSubtask"
         />
-        <label :for="`${subtask.id}`">{{ subtask.name }}</label>
+        <label
+        :for="`${subtask.id}`"
+        :class="{ completed : subtask.isCompleted === true }"
+        >
+            {{ subtask.name }}
+        </label>
     </div>
 </template>
 
 <style scoped>
-
+.completed {
+    text-decoration: line-through;
+}
 </style>

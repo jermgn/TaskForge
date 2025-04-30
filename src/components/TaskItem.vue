@@ -29,7 +29,12 @@ const toggleOpen = () => {
         :checked="task.state === TaskState.COMPLETED"
         @change="toggleTaskState"
         />
-        <label :for="`${task.id}`">{{ task.name }}</label>
+        <label
+        :for="`${task.id}`"
+        :class="{ completed : task.state === TaskState.COMPLETED }"
+        >
+            {{ task.name }}
+        </label>
         <button @click="toggleOpen">{{ isOpen ? 'v' : '>' }}</button>
     </div>
     <div v-if="isOpen">
@@ -39,5 +44,7 @@ const toggleOpen = () => {
 </template>
 
 <style scoped>
-
+.completed {
+    text-decoration: line-through;
+}
 </style>

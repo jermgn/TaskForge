@@ -1,5 +1,9 @@
 <script setup lang="ts">
-defineProps(['tag']);
+import type { Tag } from '@/types/Tag';
+
+defineProps<{
+    tag: Tag,
+}>();
 </script>
 
 <template>

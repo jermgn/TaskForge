@@ -3,7 +3,6 @@ import { useTaskStore } from '@/stores/TaskStore';
 import TaskItem from '@/components/TaskItem.vue';
 
 const taskStore = useTaskStore();
-
 const { getTasks } = taskStore;
 </script>
 

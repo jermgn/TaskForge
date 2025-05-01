@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import type { Subtask } from '@/types/Subtask';
 import { mockSubtasks } from '@/mocks';
+import type { Task } from '@/types/Task';
 
 export const useSubtaskStore = defineStore('subtasks', () => {
 
@@ -20,14 +21,14 @@ export const useSubtaskStore = defineStore('subtasks', () => {
         if (subtask) subtask.isCompleted = !subtask.isCompleted;
     };
 
-    const getSubtasksByTaskId = (taskId: string) => {
-        return subtasks.value.filter(subtask => subtask.taskId === taskId);
+    const getSubtasksByTask = (task: Task) => {
+        return subtasks.value.filter(subtask => task.subtaskIds?.includes(subtask.id));
     };
 
     return {
         addSubtask,
         removeSubtask,
         toggleSubtask,
-        getSubtasksByTaskId,
+        getSubtasksByTask,
     };
 });

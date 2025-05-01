@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import TagItem from './TagItem.vue';
+import { useTagStore } from '@/stores/TagStore';
+import type { Task } from '@/types/Task';
 
-defineProps(['tags']);
+defineProps<{
+    task: Task,
+}>();
+
+const tagStore = useTagStore();
+const { getTagsByTask } = tagStore;
+
 </script>
 
 <template>
-    <div v-for="tag in tags" :key="tag.id">
+    <div v-for="tag in getTagsByTask(task)" :key="tag.id">
         <TagItem :tag="tag" />
     </div>
 </template>

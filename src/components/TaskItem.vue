@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useTaskStore } from '@/stores/TaskStore';
 import SubtaskList from '@/components/SubtaskList.vue';
+import { useTaskStore } from '@/stores/TaskStore';
 import { TaskState } from '@/enums/TaskState';
 import type { Task } from '@/types/Task';
 
-const props = defineProps<{
+defineProps<{
     task: Task,
 }>();
 
 const taskStore = useTaskStore();
-const isOpen = ref(false);
+const { toggleTaskState } = taskStore;
 
-const toggleTaskState = () => {
-    taskStore.toggleTaskState(props.task.id);
-};
+const isOpen = ref(false);
 
 const toggleOpen = () => {
     isOpen.value = !isOpen.value
@@ -27,7 +25,7 @@ const toggleOpen = () => {
         type="checkbox"
         :id="`${task.id}`"
         :checked="task.state === TaskState.COMPLETED"
-        @change="toggleTaskState"
+        @change="() => toggleTaskState(task.id)"
         />
         <label
         :for="`${task.id}`"

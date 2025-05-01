@@ -22,14 +22,18 @@ export const useTaskStore = defineStore('tasks', () => {
             task.state = task.state === TaskState.COMPLETED ? TaskState.TODO : TaskState.COMPLETED;
         }
     };
+
+    const getTasksByTagId = (tagId: string) => {
+        return tasks.value.filter(task => task.tagIds?.includes(tagId));
+    };
     
     const getTasks = computed(() => tasks.value);
     
     return {
-        tasks,
         addTask,
         removeTask,
         toggleTaskState,
+        getTasksByTagId,
         getTasks,
     };
 });

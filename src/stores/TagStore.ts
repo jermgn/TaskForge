@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { Tag } from '@/types/Tag';
 import { mockTags } from '@/mocks';
+import type { Task } from '@/types/Task';
 
 export const useTagStore = defineStore('tags', () => {
 
@@ -15,12 +16,16 @@ export const useTagStore = defineStore('tags', () => {
         tags.value = tags.value.filter(t => t.id !== id);
     };
 
+    const getTagsByTask = (task: Task) => {
+        return tags.value.filter(tag => task.tagIds?.includes(tag.id));
+    };
+    
     const getTags = computed(() => tags.value);
 
     return {
-        tags,
         addTag,
         removeTag,
+        getTagsByTask,
         getTags,
     };
 });

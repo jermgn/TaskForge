@@ -4,6 +4,7 @@ import SubtaskList from '@/components/SubtaskList.vue';
 import { useTaskStore } from '@/stores/TaskStore';
 import { TaskState } from '@/enums/TaskState';
 import type { Task } from '@/types/Task';
+import TaskStateIcon from './TaskStateIcon.vue';
 
 defineProps<{
     task: Task,
@@ -20,19 +21,13 @@ const toggleOpen = () => {
 </script>
 
 <template>
-    <div>
-        <input
-        type="checkbox"
-        :id="`${task.id}`"
-        :checked="task.state === TaskState.COMPLETED"
-        @change="() => toggleTaskState(task.id)"
-        />
-        <label
-        :for="`${task.id}`"
-        :class="{ completed : task.state === TaskState.COMPLETED }"
-        >
+    <div class="task">
+        <TaskStateIcon @click="toggleTaskState(task.id)" :task="task" />
+        
+        <label :class="{ completed : task.state === TaskState.COMPLETED }">
             {{ task.name }}
         </label>
+
         <button @click="toggleOpen">{{ isOpen ? 'v' : '>' }}</button>
     </div>
     <div v-if="isOpen">
